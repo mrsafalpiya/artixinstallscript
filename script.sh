@@ -3,23 +3,23 @@
 pacman -Syy
 pacman -S --noconfirm figlet
 
-## Ask for hostname or else return an error if left blank
+# Ask for hostname or else return an error if left blank
 figlet "Basic Info"
 echo -n "Hostname: "
 read hostname
 : "${hostname:?"Missing hostname"}"
 
-## Ask for zoneinfo or else return an error if left blank
+# Ask for zoneinfo or else return an error if left blank
 echo -n "Zone: (Asia/Kathmandu) "
 read zone
 : "${zone:?"Missing hostname"}"
 
-## Ask for username or else return an error if left blank
+# Ask for username or else return an error if left blank
 echo -n "Username: "
 read username
 : "${username:?"Missing username"}"
 
-## Ask for password
+# Ask for password
 echo -n "Password: "
 read -s password
 echo 
@@ -27,7 +27,7 @@ echo -n "Repeat Password: "
 read -s password2
 [[ "$password" == "$password2" ]] || ( echo; echo "Passwords did not match"; exit 1; )
 
-## Ask for disk and open it with cfdisk
+# Ask for disk and open it with cfdisk
 echo
 figlet "Disk Configuration"
 lsblk
@@ -35,7 +35,7 @@ echo -n "Select the disk you want to install to: (/dev/xxx) "
 read disk
 cfdisk ${disk}
 
-## Ask for boot and root partition
+# Ask for boot and root partition
 clear
 lsblk
 echo -n "Select your boot partition: (/dev/sdxx) "
@@ -43,7 +43,7 @@ read part_boot
 echo -n "Select your root partition: (dev/sdxx) "
 read part_root
 
-## Format and mount boot and root partitions
+# Format and mount boot and root partitions
 clear
 figlet "Formatting and Mounting"
 mkfs.fat -F32 ${part_boot}
