@@ -86,7 +86,7 @@ echo "LANG=en_US.UTF-8" >> /mnt/etc/locale.conf
 # Hostname and Hosts configuration
 echo $hostname > /mnt/etc/hostname
 echo "127.0.0.1 localhost
-::1   localhost
+::1 localhost
 127.0.1.1 {hostname}.localdomain  {hostname}" > /mnt/etc/hosts
 
 # Add user and set user + root passwords
