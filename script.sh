@@ -1,7 +1,7 @@
 ##!/bin/bash
 
 pacman -Syy
-pacman -S figlet
+pacman -S --noconfirm figlet
 
 ## Ask for hostname or else return an error if left blank
 figlet "Basic Info"
