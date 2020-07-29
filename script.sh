@@ -49,7 +49,7 @@ figlet "Formatting and Mounting"
 mkfs.fat -F32 ${part_boot}
 mkfs.ext4 ${part_root}
 mount ${part_root} /mnt
-mkdir -p /mnt /mnt/boot/efi
+mkdir -p /mnt/boot/efi
 mount ${part_boot} /mnt/boot/efi
 
 # Basestrap install
@@ -79,9 +79,9 @@ echo
 figlet "Localization"
 artools-chroot /mnt ln -sf /usr/share/zoneinfo/$local /etc/localtime
 artools-chroot /mnt hwclock --systohc
-sed -i '/en_US.UTF-8 UTF-8/s/^#//g' /etc/locale.gen
+echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
 artools-chroot /mnt locale-gen
-artools-chroot /mnt echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+echo "LANG=en_US.UTF-8" >> /mnt/etc/locale.conf
 
 # Hostname and Hosts configuration
 echo $hostname > /mnt/etc/hostname
