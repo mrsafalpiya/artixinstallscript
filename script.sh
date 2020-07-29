@@ -103,11 +103,11 @@ cat pacman_install.list | { while read line
 do
   paclist="$paclist $line"
 done
-artools-chroot /mnt pacman -S --noconfirm $baselist
+artools-chroot /mnt pacman -S --noconfirm $paclist
 while [ <(pacman -Qi grub) ]
 do
   artools-chroot /mnt pacman -Syy
-  artools-chroot pacman -S --noconfirm $baselist
+  artools-chroot pacman -S --noconfirm $paclist
 done
 }
 
