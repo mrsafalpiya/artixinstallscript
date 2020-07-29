@@ -103,12 +103,7 @@ cat pacman_install.list | { while read line
 do
   paclist="$paclist $line"
 done
-artools-chroot /mnt pacman -S --noconfirm $paclist
-while [ <(artools-chroot /mnt pacman -Qi grub) ]
-do
-  artools-chroot /mnt pacman -Syy
-  artools-chroot /mnt pacman -S --noconfirm $paclist
-done
+pacinstall () { artools-chroot /mnt pacman -Syy; artools-chroot /mnt pacman -S --noconfirm $paclist; [ <(artools-chroot /mnt pacman -Qi grub) ] && pacinstall; }
 }
 
 # Install grub
