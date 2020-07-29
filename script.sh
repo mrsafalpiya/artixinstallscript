@@ -77,7 +77,7 @@ fstabgen -U /mnt >> /mnt/etc/fstab
 # Localization
 echo
 figlet "Localization"
-artools-chroot /mnt ln -sf /usr/share/zoneinfo/$zone /mnt/etc/localtime
+artools-chroot /mnt ln -sf /usr/share/zoneinfo/$zone /etc/localtime
 artools-chroot /mnt hwclock --systohc
 echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
 artools-chroot /mnt locale-gen
