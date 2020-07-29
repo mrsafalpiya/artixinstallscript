@@ -93,7 +93,7 @@ echo "127.0.0.1 localhost
 artools-chroot /mnt useradd -mG wheel $username
 echo "$username:$password" | chpasswd --root /mnt
 echo "root:$password" | chpasswd --root /mnt
-sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
+sed -i '1,/# %wheel.*/ s/# %wheel.*/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
 # grub + pacman downloads
 echo
