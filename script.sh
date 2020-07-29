@@ -103,7 +103,7 @@ cat pacman_install.list | { while read line
 do
   paclist="$paclist $line"
 done
-pacinstall () { artools-chroot /mnt pacman -Syy; artools-chroot /mnt pacman -S --noconfirm $paclist; [[ $(artools-chroot /mnt pacman -Qi grub) ]] && pacinstall; }
+pacinstall () { artools-chroot /mnt pacman -Syy; artools-chroot /mnt pacman -S --noconfirm $paclist; [[ ! $(artools-chroot /mnt pacman -Qi grub) ]] && pacinstall; }
 pacinstall
 }
 
