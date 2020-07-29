@@ -12,7 +12,7 @@ read hostname
 # Ask for zoneinfo or else return an error if left blank
 echo -n "Zone: (Asia/Kathmandu) "
 read zone
-: "${zone:?"Missing hostname"}"
+[ -z "$zone" ] && zone="Asia/Kathmandu"
 
 # Ask for username or else return an error if left blank
 echo -n "Username: "
@@ -87,7 +87,7 @@ echo "LANG=en_US.UTF-8" >> /mnt/etc/locale.conf
 echo $hostname > /mnt/etc/hostname
 echo "127.0.0.1 localhost
 ::1 localhost
-127.0.1.1 {hostname}.localdomain  {hostname}" > /mnt/etc/hosts
+127.0.1.1 $hostname.localdomain  $hostname" > /mnt/etc/hosts
 
 # Add user and set user + root passwords
 artools-chroot /mnt useradd -mG wheel $username
