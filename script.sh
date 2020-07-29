@@ -10,7 +10,7 @@ read hostname
 : "${hostname:?"Missing hostname"}"
 
 ## Ask for zoneinfo or else return an error if left blank
-echo -n "Zone: (Asia/Kathmandu)"
+echo -n "Zone: (Asia/Kathmandu) "
 read zone
 : "${zone:?"Missing hostname"}"
 
@@ -31,16 +31,16 @@ read -s password2
 echo
 figlet "Disk Configuration"
 lsblk
-echo -n "Select the disk you want to install to: (/dev/xxx)"
+echo -n "Select the disk you want to install to: (/dev/xxx) "
 read disk
 cfdisk ${disk}
 
 ## Ask for boot and root partition
 clear
 lsblk
-echo -n "Select your boot partition: (/dev/sdxx)"
+echo -n "Select your boot partition: (/dev/sdxx) "
 read part_boot
-echo -n "Select your root partition: (dev/sdxx)"
+echo -n "Select your root partition: (dev/sdxx) "
 read part_root
 
 ## Format and mount boot and root partitions
@@ -104,10 +104,10 @@ do
   paclist="$paclist $line"
 done
 artools-chroot /mnt pacman -S --noconfirm $paclist
-while [ <(pacman -Qi grub) ]
+while [ <(artools-chroot /mnt pacman -Qi grub) ]
 do
   artools-chroot /mnt pacman -Syy
-  artools-chroot pacman -S --noconfirm $paclist
+  artools-chroot /mnt pacman -S --noconfirm $paclist
 done
 }
 
