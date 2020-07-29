@@ -90,7 +90,7 @@ echo "127.0.0.1 localhost
 127.0.1.1 {hostname}.localdomain  {hostname}" > /mnt/etc/hosts
 
 # Add user and set user + root passwords
-arch-chroot /mnt useradd -mG wheel $username
+artools-chroot /mnt useradd -mG wheel $username
 echo "$username:$password" | chpasswd --root /mnt
 echo "root:$password" | chpasswd --root /mnt
 sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /etc/sudoers
@@ -103,19 +103,19 @@ cat pacman_install.list | { while read line
 do
   paclist="$paclist $line"
 done
-arch-chroot pacman -S --noconfirm /mnt $baselist
+artools-chroot /mnt pacman -S --noconfirm /mnt $baselist
 while [ <(pacman -Qi grub) ]
 do
-  arch-chroot /mnt pacman -Syy
-  arch-chroot pacman -S --noconfirm /mnt $baselist
+  artools-chroot /mnt pacman -Syy
+  artools-chroot pacman -S --noconfirm /mnt $baselist
 done
 }
 
 # Install grub
 echo
 figlet "Installing grub"
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/mnt --bootloader-id=GRUB
-arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+artools-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/mnt --bootloader-id=GRUB
+artools-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # Copy another script and unmount partitions
 echo
