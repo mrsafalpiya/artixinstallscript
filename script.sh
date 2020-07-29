@@ -110,7 +110,7 @@ pacinstall
 # Install grub
 echo
 figlet "Installing grub"
-artools-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/mnt --bootloader-id=GRUB
+artools-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/mnt/boot/mnt --bootloader-id=GRUB
 artools-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # Copy another script and unmount partitions
