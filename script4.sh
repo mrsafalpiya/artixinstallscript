@@ -4,7 +4,7 @@
 echo
 figlet "Downloading from AUR"
 aurlist=""
-cat aur_install.list | { while read line 
+cat ~/ArtixScript/aur_install.list | { while read line 
 do
   aurlist="$aurlist $line"
 done
