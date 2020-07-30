@@ -23,5 +23,6 @@ pulseaudio-equalizer
 pulseaudio-jack
 alsa-utils
 pulsemixer
+figlet
 xdg-utils
 xdg-user-dirs
