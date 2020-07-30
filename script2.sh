@@ -26,11 +26,12 @@ postinstall
 # Installing suckless programs
 echo
 figlet "Suckless programs"
-cat slgit_install.list | { while read line
+cat /home/$username/ArtixScript/slgit_install.list | { while read line
 do
 	mkdir -p /home/$username/slprograms/
 	git clone $line /home/$username/slprograms
 	prog=$(echo $line | sed 's/^.*\///g')
+	figlet $prog
 	[ $prog == "dotfiles" ] && cd /home/$username/slprograms/$prog; cp -rt ~ . || cd /home/$username/slprograms/$prog; make clean install
 done
 }
