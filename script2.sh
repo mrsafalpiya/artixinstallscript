@@ -8,7 +8,8 @@ ln -s /etc/runit/sv/bluetoothd /run/runit/service/bluetoothd
 ln -s /etc/runit/sv/cupsd /run/runit/service/cupsd
 echo "Waiting for the network service to startup properly"
 sleep 15s
-echo "Checking for internet below"
+echo
+echo "Check for internet below: "
 ping -c 4 google.com
 
 # Make pacman & yay colorful!
