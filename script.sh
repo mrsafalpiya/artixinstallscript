@@ -120,4 +120,4 @@ cp -t /mnt/home/${username} aur_install.list post_install.list slgit_install.lis
 umount -R /mnt
 echo
 figlet "DONE!"
-echo "Now reboot, login to your non-root user and run the following command 'sh script2.sh'"
+echo "Now reboot, login in and run the following command 'sudo sh script2.sh'"
