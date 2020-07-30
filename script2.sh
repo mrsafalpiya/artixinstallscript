@@ -23,16 +23,17 @@ postinstall () { pacman -Syy; pacman -S --noconfirm $postlist; [[ ! $(pacman -Qi
 postinstall
 }
 
-# Installing suckless programs
+# Installing external programs
 echo
-figlet "Suckless programs"
-mkdir -p /home/$username/slprograms/
+figlet "External programs"
+mkdir -p /home/$username/extprograms/
 cat /home/$username/ArtixScript/slgit_install.list | { while read line
 do
 	prog=$(echo $line | sed 's/^.*\///g')
-	git clone $line /home/$username/slprograms/$prog
 	figlet $prog
-	[ $prog == "dotfiles" ] && cd /home/$username/slprograms/$prog; cp -rt ~ . || cd /home/$username/slprograms/$prog; make clean install
+	git clone $line /home/$username/extprograms/$prog
+	figlet $prog
+	[ $prog == "dotfiles" ] && cp -rt "/home/$username/" "/home/$username/extprograms/." || make clean install -C "/home/$username/extprograms/$prog"
 done
 }
 
