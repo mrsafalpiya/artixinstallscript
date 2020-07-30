@@ -121,7 +121,7 @@ mkdir -p /mnt/home/$username/ArtixScript
 cp -t /mnt/home/$username/ArtixScript aur_install.list post_install.list slgit_install.list script2.sh script3.sh script4.sh
 echo "alias artixinstall2='sudo sh /home/$username/ArtixScript/script2.sh'" >> /mnt/home/$username/.bashrc
 echo "alias artixinstall3='sh /home/$username/ArtixScript/script3.sh'" >> /mnt/home/$username/.bashrc
-echo "alias yi='sudo sh /home/$username/ArtixScript/script4.sh'" >> /mnt/home/$username/.bashrc
+echo "alias yi='sh /home/$username/ArtixScript/script4.sh'" >> /mnt/home/$username/.bashrc
 umount -R /mnt
 echo
 figlet "DONE!"
