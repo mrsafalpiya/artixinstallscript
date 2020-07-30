@@ -7,7 +7,7 @@ ln -s /etc/runit/sv/NetworkManager /run/runit/service/NetworkManager
 ln -s /etc/runit/sv/bluetoothd /run/runit/service/bluetoothd
 ln -s /etc/runit/sv/cupsd /run/runit/service/cupsd
 echo "Waiting for the network service to startup properly"
-sleep 12s
+sleep 15s
 echo "Checking for internet below"
 ping -c 4 google.com
 
@@ -15,7 +15,7 @@ ping -c 4 google.com
 echo
 figlet "Post Downloads"
 postlist=""
-cat post_install.list | { while read line 
+cat /home/$username/ArtixScript/post_install.list | { while read line 
 do
   postlist="$postlist $line"
 done
