@@ -8,5 +8,6 @@ cat aur_install.list | { while read line
 do
   aurlist="$aurlist $line"
 done
-yay -S $aurlist
+yay -S --noconfirm $aurlist
+yay -S libxft-bgra
 }
