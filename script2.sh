@@ -12,9 +12,6 @@ echo
 echo "Check for internet below: "
 ping -c 4 google.com
 
-# Make pacman & yay colorful!
-echo "Color" >> /etc/pacman.conf
-
 # Downloading other programs
 echo
 figlet "Post Downloads"
