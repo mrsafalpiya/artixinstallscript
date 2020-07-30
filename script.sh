@@ -85,9 +85,9 @@ echo "LANG=en_US.UTF-8" >> /mnt/etc/locale.conf
 
 # Hostname and Hosts configuration
 echo $hostname > /mnt/etc/hostname
-echo "127.0.0.1 localhost
-::1 localhost
-127.0.1.1 $hostname.localdomain  $hostname" > /mnt/etc/hosts
+echo "127.0.0.1	localhost
+::1		localhost
+127.0.1.1	$hostname.localdomain	$hostname" > /mnt/etc/hosts
 
 # Add user and set user + root passwords
 artools-chroot /mnt useradd -mG wheel $username
@@ -116,8 +116,8 @@ artools-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 # Copy another script and unmount partitions
 echo
 figlet "Some cleaning"
-cp -t /mnt/home/${username} script2.sh post_install.sh
+cp -t /mnt/home/${username} aur_install.list post_install.list slgit_install.list script2.sh script3.sh
 umount -R /mnt
 echo
 figlet "DONE!"
-echo "Now reboot, login to your non-root user and run the following command 'sh scripts2.sh'"
+echo "Now reboot, login to your non-root user and run the following command 'sh script2.sh'"
