@@ -36,6 +36,7 @@ do
 	[ $prog == "dotfiles" ] && cp -rt "/home/$username/" "/home/$username/extprograms/." || make clean install -C "/home/$username/extprograms/$prog"
 done
 }
+sudo ln -sfT /bin/dash /bin/sh
 
 # Ending
 echo
