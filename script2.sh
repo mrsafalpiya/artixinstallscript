@@ -37,7 +37,7 @@ do
 	figlet $prog
 	git clone $line /home/$username/extprograms/$prog
 	figlet $prog
-	[ $prog == "dotfiles" ] && cp -rt "/home/$username/" "/home/$username/extprograms/." || make clean install -C "/home/$username/extprograms/$prog"
+	[ $prog == "dotfiles" ] && cp -rt "/home/$username/" "/home/$username/extprograms/dotfiles/." || make clean install -C "/home/$username/extprograms/$prog"
 done
 }
 ln -sfT /bin/dash /bin/sh
