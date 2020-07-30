@@ -79,7 +79,7 @@ echo
 figlet "Localization"
 artools-chroot /mnt ln -sf /usr/share/zoneinfo/$zone /etc/localtime
 artools-chroot /mnt hwclock --systohc
-echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+echo "en_US.UTF-8 UTF-8" > /mnt/etc/locale.gen
 artools-chroot /mnt locale-gen
 echo "LANG=en_US.UTF-8" >> /mnt/etc/locale.conf
 
@@ -116,8 +116,13 @@ artools-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 # Copy another script and unmount partitions
 echo
 figlet "Some cleaning"
-cp -t /mnt/home/${username} aur_install.list post_install.list slgit_install.list script2.sh script3.sh
+sed -i "1,/^username=.*/ s/^username=.*/username=$username/" script2.sh
+mkdir -p /mnt/home/$username/ArtixScript
+cp -t /mnt/home/$username/ArtixScript aur_install.list post_install.list slgit_install.list script2.sh script3.sh script4.sh
+echo "alias artixinstall2='sudo sh /mnt/home/$username/ArtixScript/script2.sh'" >> /mnt/home/$username/.bashrc
+echo "alias artixinstall3='sudo sh /mnt/home/$username/ArtixScript/script3.sh'" >> /mnt/home/$username/.bashrc
+echo "alias yi='sudo sh /mnt/home/$username/ArtixScript/script4.sh'" >> /mnt/home/$username/.bashrc
 umount -R /mnt
 echo
 figlet "DONE!"
-echo "Now reboot, login in and run the following command 'sudo sh script2.sh'"
+echo "Now reboot, login in to your non-root user and run the following command 'artixinstall2'"

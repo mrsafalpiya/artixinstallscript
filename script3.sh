@@ -1,12 +1,18 @@
 #!/bin/bash
 
-# Downloading programs from AUR
+# Creating user dirs
 echo
-figlet "Downloading from AUR"
-aurlist=""
-cat aur_install.list | { while read line 
-do
-  aurlist="$aurlist $line"
-done
-yay -S $aurlist
-}
+figlet "User dirs"
+xdg-user-dirs-update
+
+# Installing yay
+echo
+figlet "Installing yay"
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si PKGBUILD
+
+# Ending
+echo
+figlet "DONE!"
+echo "Installation of yay completed successfully! Now run 'yi' to install programs from AUR."
