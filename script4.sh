@@ -13,4 +13,5 @@ gpg --keyserver keys.gnupg.net --recv-keys A2FB9E081F2D130E
 yay -S libxft-bgra
 }
 
+# Change shell to zsh
 chsh -s $(which zsh)
