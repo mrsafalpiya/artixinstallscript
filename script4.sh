@@ -15,3 +15,6 @@ yay -S libxft-bgra
 
 # Change shell to zsh
 chsh -s $(which zsh)
+
+# Install pynvim
+pip install pynvim
