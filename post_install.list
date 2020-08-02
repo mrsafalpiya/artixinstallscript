@@ -17,6 +17,9 @@ unzip
 p7zip
 htop
 mpv
+mpd
+ncmpcc
+mpc
 ffmpeg
 mediainfo
 zathura
