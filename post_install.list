@@ -3,6 +3,7 @@ xorg-xinit
 ttf-jetbrains-mono
 ttf-dejavu
 ttf-joypixels
+entr
 dash
 stow 
 highlight
