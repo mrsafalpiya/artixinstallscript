@@ -27,14 +27,20 @@ postinstall
 # Installing external programs
 echo
 figlet "External programs"
-mkdir -p /home/$username/extprograms/
+mkdir -p /home/$username/extprograms/smci
 cat /home/$username/ArtixScript/extgit_smci.list | { while read line
 do
 	prog=$(echo $line | sed 's/^.*\///g')
 	figlet $prog
-	git clone $line /home/$username/extprograms/$prog
+	git clone $line /home/$username/extprograms/smci/$prog
+	figlet "Installing $prog"
+	make clean install -C "/home/$username/extprograms/smci/$prog"
+done
+cat /home/$username/ArtixScript/ext_git.list | { while read line
+do
+	prog=$(echo $line | sed 's/^.*\///g')
 	figlet $prog
-	make clean install -C "/home/$username/extprograms/$prog"
+	git clone $line /home/$username/extprograms/$prog
 done
 }
 ln -sfT /bin/dash /bin/sh
