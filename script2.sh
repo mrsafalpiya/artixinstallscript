@@ -28,7 +28,7 @@ postinstall
 echo
 figlet "External programs"
 mkdir -p /home/$username/extprograms/
-cat /home/$username/ArtixScript/slgit_install.list | { while read line
+cat /home/$username/ArtixScript/extgit_install.list | { while read line
 do
 	prog=$(echo $line | sed 's/^.*\///g')
 	figlet $prog
