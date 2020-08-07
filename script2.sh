@@ -36,6 +36,7 @@ do
 	figlet "Installing $prog"
 	make clean install -C "/home/$username/extprograms/smci/$prog"
 done
+}
 cat /home/$username/ArtixScript/ext_git.list | { while read line
 do
 	prog=$(echo $line | sed 's/^.*\///g')
