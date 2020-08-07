@@ -21,6 +21,7 @@ pulseaudio-bluetooth
 pulseaudio-alsa
 pulseaudio-equalizer
 pulseaudio-jack
+pamixer
 alsa-utils
 pulsemixer
 figlet
