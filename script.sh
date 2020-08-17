@@ -118,7 +118,7 @@ echo
 figlet "Some cleaning"
 sed -i "1,/^username=.*/ s/^username=.*/username=$username/" script2.sh
 mkdir -p /mnt/home/$username/ArtixScript
-cp -t /mnt/home/$username/ArtixScript aur_install.list post_install.list extgit_smci.list ext_git.list extgit_stow.list script2.sh script3.sh script4.sh
+cp -t /mnt/home/$username/ArtixScript aur_install.list post_install.list extgit_smci.list ext_git.list extgit_stow.list extgit_scripts.list script2.sh script3.sh script4.sh
 echo "alias artixinstall2='sudo sh /home/$username/ArtixScript/script2.sh'" >> /mnt/home/$username/.bashrc
 echo "alias artixinstall3='sh /home/$username/ArtixScript/script3.sh'" >> /mnt/home/$username/.bashrc
 echo "alias yi='sh /home/$username/ArtixScript/script4.sh'" >> /mnt/home/$username/.bashrc
