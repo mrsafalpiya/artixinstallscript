@@ -53,6 +53,15 @@ do
 	stow /home/$username/$prog/*
 done
 }
+cat /home/$username/ArtixScript/extgit_scripts.list | { while read line
+do
+	prog=$(echo $line | sed 's/^.*\///g')
+	figlet $prog
+	git clone $line /home/$username/$prog
+	figlet "Installing $prog"
+	cp -rft /home/$username /home/$username/$prog
+done
+}
 ln -sfT /bin/dash /bin/sh
 
 # Ending
