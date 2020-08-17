@@ -1,7 +1,9 @@
 xorg --ignore xorg-server-xdmx
 xorg-xinit
 ttf-jetbrains-mono
-ttf-dejavu
+noto-fonts
+noto-fonts-extra
+noto-fonts-emoji
 ttf-joypixels
 dash
 stow 
@@ -46,6 +48,5 @@ npm
 ntfs-3g
 xautolock
 scrot
-udiskie
 i3lock
 python-pip
