@@ -57,3 +57,5 @@ ffmpegthumbnailer
 poppler
 perl-image-exiftool
 cdrtools
+odt2txt
+catdoc
